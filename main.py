@@ -1,7 +1,11 @@
+
+from judoscale.asgi.middleware import FastAPIRequestQueueTimeMiddleware # Test AutoScale by using JudoScale
 from fastapi import FastAPI, Query
 import uvicorn
 
 app = FastAPI()
+
+app.add_middleware(FastAPIRequestQueueTimeMiddleware)#judo
 
 @app.get("/")
 def read_root():
@@ -27,6 +31,6 @@ def calculate(
         return {"error": "Invalid!!! Just type add, minus, times, division"}
     
     return {"Operator": Operator, "a": firstDigit, "secondDigit": secondDigit, "result": result}
-
+    app.add_middleware(FastAPIRequestQueueTimeMiddleware)
 #if __name__ == "__main__":
 #   uvicorn.run("app:app", host="0.0.0.0", port=10000 , reload=True)
