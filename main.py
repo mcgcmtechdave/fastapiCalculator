@@ -3,7 +3,7 @@ import uvicorn
 
 app = FastAPI()
 
-@app.get("/eval")
+@app.get("/")
 def calculate(
     Operator: str = Query(..., description="Choose to Calculate type: add |minus | times | devide"),
     firstDigit: float = Query(..., description="First Digit"),
