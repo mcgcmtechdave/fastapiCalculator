@@ -4,6 +4,10 @@ import uvicorn
 app = FastAPI()
 
 @app.get("/")
+def read_root():
+    return {"Hello": "Pew"}
+
+@app.get("/eval")
 def calculate(
     Operator: str = Query(..., description="Choose to Calculate type: add |minus | times | devide"),
     firstDigit: float = Query(..., description="First Digit"),
