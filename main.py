@@ -10,7 +10,7 @@ def read_root():
 
 @app.get("/eval")
 def calculate(
-    app.add_middleware(FastAPIRequestQueueTimeMiddleware)
+   
     Operator: str = Query(..., description="Choose to Calculate type: add |minus | times | devide"),
     firstDigit: float = Query(..., description="First Digit"),
     secondDigit: float = Query(..., description="Second Digit")
