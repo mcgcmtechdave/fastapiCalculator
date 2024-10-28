@@ -1,11 +1,8 @@
-
-from judoscale.asgi.middleware import FastAPIRequestQueueTimeMiddleware # Test AutoScale by using JudoScale
 from fastapi import FastAPI, Query
 import uvicorn
 
 app = FastAPI()
 
-app.add_middleware(FastAPIRequestQueueTimeMiddleware)#judo
 
 @app.get("/")
 def read_root():
