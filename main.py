@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Query
+import uvicorn
 
 app = FastAPI()
 
@@ -23,6 +24,5 @@ def calculate(
     
     return {"Operator": Operator, "a": firstDigit, "secondDigit": secondDigit, "result": result}
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("app:app", host="0.0.0.0", port=10000 , reload=True)
+#if __name__ == "__main__":
+#   uvicorn.run("app:app", host="0.0.0.0", port=10000 , reload=True)
