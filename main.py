@@ -13,6 +13,7 @@ def read_root():
 
 @app.get("/eval")
 def calculate(
+    app.add_middleware(FastAPIRequestQueueTimeMiddleware)
     Operator: str = Query(..., description="Choose to Calculate type: add |minus | times | devide"),
     firstDigit: float = Query(..., description="First Digit"),
     secondDigit: float = Query(..., description="Second Digit")
@@ -31,6 +32,6 @@ def calculate(
         return {"error": "Invalid!!! Just type add, minus, times, division"}
     
     return {"Operator": Operator, "a": firstDigit, "secondDigit": secondDigit, "result": result}
-    app.add_middleware(FastAPIRequestQueueTimeMiddleware)
+
 #if __name__ == "__main__":
 #   uvicorn.run("app:app", host="0.0.0.0", port=10000 , reload=True)
